@@ -16,11 +16,16 @@ app.get('/products/:id', (req, res) =>{
 
   const productId = req.params.id;
 
-  const product = [
+  const products = [
     {"id": 1, "name" : "Product A"},
     {"id": 2, "name" : "Product B"},
     {"id": 3, "name" : "Product C"},
   ]
+
+  const product = products.find(product => product.id == parseInt(productId));
+
+  res.send(`Product id: ${product.id}.  Product Name: ${product.name}`);
+
 
 });
 
